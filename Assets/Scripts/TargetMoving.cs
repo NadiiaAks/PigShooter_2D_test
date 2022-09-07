@@ -6,7 +6,6 @@ public class TargetMoving : MonoBehaviour
 {
     [SerializeField] float speed;
     [SerializeField] Vector2 newPosition;
-    Vector2 currentPosition;
 
     void Update()
     {
