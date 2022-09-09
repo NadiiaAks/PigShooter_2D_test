@@ -22,19 +22,18 @@ public class PigBihavior : MonoBehaviour
     {
         if (target.IsTimeToAttack)
         {
-            Debug.Log("Attack work");
             animator.SetTrigger("attack");
         }
 
-        MakeArrow();
+        //MakeArrow();
     }
 
-    private void MakeArrow()
+    /*private void MakeArrow()
     {
         if(Input.GetKey(KeyCode.Space))
         {
             Instantiate(arrow, arrowSpot.position, arrowRotation.rotation);
         }
-    }
+    }*/
 
 }
