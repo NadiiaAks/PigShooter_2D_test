@@ -7,24 +7,33 @@ public class Shooting : MonoBehaviour
     [SerializeField] GameObject arrow;
     [SerializeField] float force;
     [SerializeField] Transform arrowPosition;
+    GameObject newArrow;
+    BowBehavior bow;
+    TargetMoving target;
 
     private void Start()
     {
-        
+        target = GameObject.FindGameObjectWithTag("Target").GetComponent<TargetMoving>();
+        bow = GameObject.FindGameObjectWithTag("Bow").GetComponent<BowBehavior>();
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Shoot();
+            if (target.IsTimeToAttack)
+            {
+                Shoot();
+            }
+
         }
     }
 
     private void Shoot()
     {
-        GameObject newArrow = Instantiate(arrow, arrowPosition.position, arrowPosition.rotation);
+        newArrow = Instantiate(arrow, arrowPosition.position, arrowPosition.rotation);
 
-        newArrow.GetComponent<Rigidbody2D>().velocity = transform.right * force;
+        newArrow.GetComponent<Rigidbody2D>().velocity = bow.GetDirection * force;
     }
+
 }

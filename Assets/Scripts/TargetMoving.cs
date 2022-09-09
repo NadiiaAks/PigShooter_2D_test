@@ -8,6 +8,7 @@ public class TargetMoving : MonoBehaviour
     [SerializeField] Vector2 newPosition;
 
     private bool isTimeToAttack;
+    private int scoreKeeper = 0;
 
     void Update()
     {
@@ -18,6 +19,10 @@ public class TargetMoving : MonoBehaviour
     {
         get => isTimeToAttack;
     }
+     public int ScoreKeeper
+    {
+        get => scoreKeeper;
+    }
 
     private void Moving()
     {
@@ -26,6 +31,13 @@ public class TargetMoving : MonoBehaviour
         {
             isTimeToAttack = true;
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        scoreKeeper++;
+        Debug.Log(scoreKeeper);
+        Destroy(collision.gameObject);
     }
 
 }
