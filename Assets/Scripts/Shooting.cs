@@ -7,6 +7,7 @@ public class Shooting : MonoBehaviour
     [SerializeField] GameObject arrow;
     [SerializeField] float force;
     [SerializeField] Transform arrowPosition;
+
     GameObject newArrow;
     BowBehavior bow;
     TargetMoving target;
@@ -18,6 +19,11 @@ public class Shooting : MonoBehaviour
     }
 
     private void Update()
+    {
+        StartShooting();
+    }
+
+    private void StartShooting()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {

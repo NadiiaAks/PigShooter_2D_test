@@ -5,13 +5,13 @@ using UnityEngine;
 public class BowBehavior : MonoBehaviour
 {
     [SerializeField] float force;
+    [SerializeField] int numberOfPoints;
     [SerializeField] GameObject pointPrefab;
     [SerializeField] GameObject[] points;
-    [SerializeField] int numberOfPoints;
     [SerializeField] GameObject zeroObject;
 
     TargetMoving target;
-    private Vector2 direction;
+    Vector2 direction;
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Target").GetComponent<TargetMoving>();
@@ -28,6 +28,11 @@ public class BowBehavior : MonoBehaviour
     }
     void Update()
     {
+        CreateTrajectory();
+    }
+
+    private void CreateTrajectory()
+    {
         if (target.IsTimeToAttack)
         {
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -42,7 +47,6 @@ public class BowBehavior : MonoBehaviour
                 points[i].transform.position = PointPosition(i * 0.1f);
             }
         }
-       
     }
 
     void FaceMous()

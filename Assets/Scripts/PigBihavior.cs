@@ -8,6 +8,7 @@ public class PigBihavior : MonoBehaviour
     [SerializeField] GameObject arrow;
     [SerializeField] Transform arrowSpot;
     [SerializeField] Transform arrowRotation;
+
     TargetMoving target;
 
     private bool isBullet;
@@ -24,16 +25,6 @@ public class PigBihavior : MonoBehaviour
         {
             animator.SetTrigger("attack");
         }
-
-        //MakeArrow();
     }
-
-    /*private void MakeArrow()
-    {
-        if(Input.GetKey(KeyCode.Space))
-        {
-            Instantiate(arrow, arrowSpot.position, arrowRotation.rotation);
-        }
-    }*/
 
 }

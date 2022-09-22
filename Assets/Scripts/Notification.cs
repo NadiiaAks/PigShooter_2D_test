@@ -11,7 +11,6 @@ public class Notification : MonoBehaviour
     {
         Time.timeScale = 0f;
     }
-
     public void CloseNotification()
     {
         Time.timeScale = 1f;

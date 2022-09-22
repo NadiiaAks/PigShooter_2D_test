@@ -27,6 +27,7 @@ public class TargetMoving : MonoBehaviour
     private void Moving()
     {
         transform.position = Vector2.MoveTowards(transform.position, newPosition, speed * Time.deltaTime);
+
         if((Vector2)transform.position == newPosition)
         {
             isTimeToAttack = true;
@@ -36,7 +37,6 @@ public class TargetMoving : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         scoreKeeper++;
-        Debug.Log(scoreKeeper);
         Destroy(collision.gameObject);
     }
 
